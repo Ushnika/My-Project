@@ -2,9 +2,9 @@
 
 import { Rating } from "@/components/ui/rating";
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Product } from "@/types/product";
 import { ColumnDef } from "@tanstack/react-table";
@@ -20,13 +20,13 @@ export const columns: ColumnDef<Product>[] = [
     header: "Image",
     cell: ({ row }) => {
       return (
-        <Image
-          src={row.original.image}
-          alt={row.original.title}
-          width={30}
-          height={30}
-          className="w-8 h-auto"
-        ></Image>
+          <Image
+            src={row.original.image}
+            alt={row.original.title}
+            width={30}
+            height={30}
+            className="w-8 h-auto"
+          ></Image>
       );
     },
   },

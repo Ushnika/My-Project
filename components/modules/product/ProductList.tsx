@@ -2,9 +2,9 @@
 import PaginationComponent from "@/components/common/Pagination";
 import { ProductListProps } from "@/types/product";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import ProductCard from "../home/ProductCard";
+import { ProductCard } from "../home/ProductCard";
 
-const ProductList = ({ data, page, limit, total }: ProductListProps) => {
+export default function  ProductList ({ data, page, limit, total }: ProductListProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -35,4 +35,3 @@ const ProductList = ({ data, page, limit, total }: ProductListProps) => {
   );
 };
 
-export default ProductList;

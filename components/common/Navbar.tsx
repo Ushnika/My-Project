@@ -63,9 +63,12 @@ const Navbar = () => {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger asChild>
-            <div className="size-8 border-2 rounded-full flex justify-center items-center cursor-pointer">
-              <ShoppingCart className="size-4 text-primary" />
-            </div>
+            <Link href={"/cart"}>
+              {" "}
+              <div className="size-8 border-2 rounded-full flex justify-center items-center cursor-pointer">
+                <ShoppingCart className="size-4 text-primary" />
+              </div>
+            </Link>
           </TooltipTrigger>
           <TooltipContent>Shopping Cart</TooltipContent>
         </Tooltip>

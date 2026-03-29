@@ -1,15 +1,15 @@
 "use client"
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-const ProductHeader = ({currentSort}:{currentSort: string}) => {
+export function  ProductHeader ({currentSort}:{currentSort: string}) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParms = useSearchParams();
@@ -39,4 +39,3 @@ const ProductHeader = ({currentSort}:{currentSort: string}) => {
   );
 };
 
-export default ProductHeader;
