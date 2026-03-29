@@ -1,11 +1,16 @@
 import { AppSidebar } from "@/components/common/AppSidebar";
 import { Separator } from "@/components/ui/separator";
 import {
-    SidebarInset,
-    SidebarProvider,
-    SidebarTrigger,
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Ecommerce Dashboard",
+  description: "Get all products in one platform",
+};
 export default function DashboardLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

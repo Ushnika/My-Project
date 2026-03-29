@@ -1,8 +1,12 @@
-import ProductHeader from "@/components/modules/product/ProductHeader";
-import ProductLayout from "@/components/modules/product/ProductLayout";
-
+import { ProductHeader } from "@/components/modules/product/ProductHeader";
+import { ProductLayout } from "@/components/modules/product/ProductLayout";
 import { getProducts } from "@/services/product.service";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Product page",
+  description: "Get all products in one platform",
+};
 export default async function ProductPage({
   searchParams,
 }: {

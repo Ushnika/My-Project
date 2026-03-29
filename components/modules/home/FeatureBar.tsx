@@ -3,7 +3,7 @@
 import { Card } from "@/components/ui/card";
 import { features } from "@/data/feature-list";
 
-const FeatureBar = () => {
+export function FeatureBar() {
   return (
     <Card className="flex flex-row items-center justify-between px-6 py-4 gap-4 rounded-sm">
       {features.map((item, index) => {
@@ -34,4 +34,4 @@ const FeatureBar = () => {
   );
 };
 
-export default FeatureBar;
+

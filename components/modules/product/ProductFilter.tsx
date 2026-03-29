@@ -1,4 +1,5 @@
 "use client";
+import CardSkeleton from "@/components/common/skeleton/CardSkeleton";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldContent, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
@@ -18,22 +19,24 @@ interface ProductFilterProps {
   setPriceRange: (range: [number, number]) => void;
 }
 
-const ProductFilter = ({
+export function ProductFilter({
   search,
   setSearch,
   selectedCategories,
   setSelectedCategories,
   priceRange,
   setPriceRange,
-}: ProductFilterProps) => {
+}: ProductFilterProps) {
   const [total, setTotal] = useState<number>(0);
   const [categories, setCategories] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     getCategoriesData();
   }, []);
 
   const getCategoriesData = async () => {
+    setIsLoading(true);
     try {
       const data = await getCategories();
       const products = await getProducts();
@@ -41,6 +44,8 @@ const ProductFilter = ({
       setTotal(products.total);
     } catch (error) {
       console.log("Error", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -67,7 +72,10 @@ const ProductFilter = ({
       {/* category list */}
       <div>
         <Label className="mb-4">Filter by Category</Label>
-        <RadioGroup className="w-fit">
+        {
+          isLoading?
+          <CardSkeleton columns="grid-cols-1" count={5} height="h-6"/>:
+          <RadioGroup className="w-fit">
           {categories.map((item) => (
             <Field orientation="horizontal" key={item}>
               <Checkbox
@@ -86,6 +94,7 @@ const ProductFilter = ({
             </Field>
           ))}
         </RadioGroup>
+        }
       </div>
       <div>
         <Label className="mb-4">Price Range</Label>
@@ -104,6 +113,4 @@ const ProductFilter = ({
       </div>
     </div>
   );
-};
-
-export default ProductFilter;
+}

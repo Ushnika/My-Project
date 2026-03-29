@@ -3,11 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Rating } from "@/components/ui/rating";
+import { addToCart } from "@/lib/cart";
 import { Product } from "@/types/product";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const ProductCard = ({product}: {product: Product}) => {
+export function ProductCard ({product}: {product: Product})  {
   const router = useRouter();
   return (
     <div>
@@ -29,10 +30,12 @@ const ProductCard = ({product}: {product: Product}) => {
                   <p className="mb-2">$ {product.price} </p>
                   <Rating rate={product.rating.rate} showScore />
                 </div>
-              <Button className="w-full mt-3">Add to cart</Button>
+              <Button className="w-full mt-3" onClick={(e) => {
+                e.stopPropagation()
+                addToCart(product,1)
+              }}>Add to cart</Button>
               </div>
             </Card></div>
   )
 }
 
-export default ProductCard

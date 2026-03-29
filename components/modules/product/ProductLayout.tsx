@@ -1,15 +1,16 @@
 "use client";
+import CardSkeleton from "@/components/common/skeleton/CardSkeleton";
 import { useDebounce } from "@/hooks/use-debounce";
 import { ProductListProps } from "@/types/product";
-import { Suspense, useMemo, useState } from "react";
-import ProductFilter from "./ProductFilter";
-import ProductList from "./ProductList";
+import React, { Suspense, useMemo, useState } from "react";
+import { ProductFilter } from "./ProductFilter";
+const ProductList = React.lazy(() => import('./ProductList'));
 
-const ProductLayout = ({ data, total, page, limit }: ProductListProps) => {
+export function ProductLayout({ data, total, page, limit }: ProductListProps) {
   const [search, setSearch] = useState<string>("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const debounceValue = useDebounce(search, 600);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0,1000])
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
   const filtered = useMemo(() => {
     return data.filter((item) => {
       const matchedSearch = debounceValue
@@ -19,7 +20,8 @@ const ProductLayout = ({ data, total, page, limit }: ProductListProps) => {
         selectedCategories.length > 0
           ? selectedCategories.includes(item.category)
           : true;
-     const matchedPrice = item.price >= priceRange[0] && item.price <= priceRange[1]
+      const matchedPrice =
+        item.price >= priceRange[0] && item.price <= priceRange[1];
 
       return matchedSearch && matchedCategory && matchedPrice;
     });
@@ -38,7 +40,12 @@ const ProductLayout = ({ data, total, page, limit }: ProductListProps) => {
         />
       </div>
       <div className="flex-1">
-        <Suspense fallback={<p>Loading...</p>}>
+
+        <Suspense
+          fallback={
+            <CardSkeleton columns="grid-cols-1 md:grid-cols-3" count={3} height="h-72"  />
+          }
+        >
           <ProductList
             data={filtered}
             total={filtered?.length}
@@ -49,6 +56,4 @@ const ProductLayout = ({ data, total, page, limit }: ProductListProps) => {
       </div>
     </div>
   );
-};
-
-export default ProductLayout;
+}

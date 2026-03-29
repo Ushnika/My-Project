@@ -8,7 +8,7 @@ interface SaleBannerProps{
     image: StaticImageData
 }
 
-const SaleBanner = ({title, subtitle, offRate, image}: SaleBannerProps) => {
+export function  SaleBanner ({title, subtitle, offRate, image}: SaleBannerProps)  {
   return (
     <div>
         <Card className="flex flex-row gap-1 px-6">
@@ -25,4 +25,3 @@ const SaleBanner = ({title, subtitle, offRate, image}: SaleBannerProps) => {
   )
 }
 
-export default SaleBanner

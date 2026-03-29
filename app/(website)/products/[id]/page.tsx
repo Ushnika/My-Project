@@ -1,4 +1,4 @@
-import SingleProductView from "@/components/modules/product/SingleProductView";
+import { SingleProductView } from "@/components/modules/product/SingleProductView";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,8 +7,13 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { getSingleProduct } from "@/services/single-product.service";
+import { Metadata } from "next";
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  title: "Single Product page",
+  description: "Grab your offer fast",
+};
 export default async function SingleProductPage({params}:{params: Promise<{id:string}>}) {
   const {id} = await params;
   const {product} = await getSingleProduct(id);
