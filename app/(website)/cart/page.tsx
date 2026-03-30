@@ -5,13 +5,8 @@ import { CartProductTable } from "@/components/modules/cart/CartProductTable";
 import { Button } from "@/components/ui/button";
 import { clearCart, removeFromCart } from "@/lib/cart";
 import { useCartStore } from "@/store/cart.store";
-import { Metadata } from "next";
 import { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Cart page",
-  description: "Your product list",
-};
 
 export default function Cart() {
   const [deleteOpen, setDeleteOpen] = useState(false);

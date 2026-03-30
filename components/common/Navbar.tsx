@@ -1,5 +1,6 @@
 "use client";
 import logo from "@/assets/images/logo.png";
+import { useCartStore } from "@/store/cart.store";
 import {
   FileIcon,
   Heart,
@@ -19,6 +20,7 @@ import { Button } from "../ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const itemsCount = useCartStore((state) => state.items.length);
   return (
     <div className="w-full px-8 py-2 flex flex-row gap-3 justify-between items-center border-b-2">
       <div className="w-30">
@@ -36,8 +38,14 @@ const Navbar = () => {
             <li className="cursor-pointer">
               <Link href={"/products"}>Products</Link>
             </li>
-            <li className="cursor-pointer"> About </li>
-            <li className="cursor-pointer"> Blog </li>
+            <li className="cursor-pointer">
+              {" "}
+              <Link href={"/service"}>Service</Link>{" "}
+            </li>
+            <li className="cursor-pointer">
+              {" "}
+              <Link href={"/course"}>Course</Link>{" "}
+            </li>
             <li className="cursor-pointer"> Contact </li>
           </ul>
         </div>
@@ -65,8 +73,15 @@ const Navbar = () => {
           <TooltipTrigger asChild>
             <Link href={"/cart"}>
               {" "}
-              <div className="size-8 border-2 rounded-full flex justify-center items-center cursor-pointer">
-                <ShoppingCart className="size-4 text-primary" />
+              <div className="relative">
+                <div className="size-8 border-2 rounded-full flex justify-center items-center cursor-pointer">
+                  <ShoppingCart className="size-4 text-primary" />
+                </div>
+                {itemsCount > 0 && (
+                  <div className="absolute -top-3 -right-2 size-6 border-2 rounded-full flex items-center justify-center bg-primary text-white text-xs">
+                    {itemsCount}
+                  </div>
+                )}
               </div>
             </Link>
           </TooltipTrigger>
@@ -101,11 +116,13 @@ const Navbar = () => {
             </li>
             <li className="flex gap-2 items-center ">
               {" "}
-              <Info className="size-4" /> About{" "}
+              <Link href={"/products"}>
+                <Info className="size-4" /> Service{" "}
+              </Link>
             </li>
             <li className="flex gap-2 items-center ">
               {" "}
-              <FileIcon className="size-4" /> Blog{" "}
+              <FileIcon className="size-4" /> Course{" "}
             </li>
             <li className="flex gap-2 items-center ">
               {" "}
