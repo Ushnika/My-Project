@@ -12,6 +12,7 @@ const TopRatedProductList = React.lazy(() => import('../../components/modules/ho
 const HomeProductList = React.lazy(() => import('../../components/modules/home/HomeProductList'))
 
 export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const { data } = await getProducts();
   return (
