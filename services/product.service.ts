@@ -10,7 +10,6 @@ export async function getProducts(
         sort: sort,
       },
     });
-
     const total = products.length;
 
     return { data: products, total };
