@@ -14,6 +14,8 @@ const HomeProductList = React.lazy(() => import('../../components/modules/home/H
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
+    console.log("ENV CHECK:", process.env.NEXT_PUBLIC_BASE_URL, process.env.BASE_URL);
+
   const { data } = await getProducts();
   return (
     <div>

@@ -35,7 +35,8 @@ export class ApiClient {
 
   private buildUrl(url: string, queryParams?: QueryParams) {
     const fullUrl = this.baseUrl + url;
-    if (!queryParams) return fullUrl;
+    
+    if (!queryParams) return fullUrl;``
     const params = new URLSearchParams();
     Object.entries(queryParams).forEach(([key, value]) => {
       if (value != undefined && value != null) {
@@ -51,6 +52,8 @@ export class ApiClient {
     options?: RequestOptions,
   ): Promise<T> {
     const finalUrl = this.buildUrl(url, options?.queryParams);
+        console.log("Fetching URL:", finalUrl); // ADD THIS
+
     try {
       const res = await fetch(finalUrl, {
         method,
