@@ -29,6 +29,7 @@ export class ApiClient {
   constructor(options?: ApiClientOptions) {
     this.baseUrl = options?.baseUrl || "";
     this.defaultHeaders = options?.headers || {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
       "Content-Type": "application/json",
     };
   }
@@ -36,7 +37,7 @@ export class ApiClient {
   private buildUrl(url: string, queryParams?: QueryParams) {
     const fullUrl = this.baseUrl + url;
     
-    if (!queryParams) return fullUrl;``
+    if (!queryParams) return fullUrl;
     const params = new URLSearchParams();
     Object.entries(queryParams).forEach(([key, value]) => {
       if (value != undefined && value != null) {
