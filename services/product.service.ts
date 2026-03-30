@@ -11,6 +11,7 @@ export async function getProducts(
       },
     });
     const total = products.length;
+    console.log("Products",products);
 
     return { data: products, total };
   } catch (error: any) {
