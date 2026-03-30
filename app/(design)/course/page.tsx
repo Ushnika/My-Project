@@ -16,7 +16,7 @@ export default function CoursePage() {
         </h3>
         <h1 className="text-2xl font-bold">
           Dive Into{" "}
-          <span className="text-[#1DA077]">What’s Hot Right Now!</span> 🔥
+          <span className="text-[#1DA077]">What&apos; Hot Right Now!</span> 🔥
         </h1>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
@@ -39,7 +39,7 @@ export default function CoursePage() {
             <div>
               <p className="text-3xl mb-2 font-medium">All Courses</p>
               <p className="text-base font-light mr-24">
-                courses you're powering through right now.
+                courses you&apos;re powering through right now.
               </p>
             </div>
           </div>

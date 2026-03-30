@@ -18,7 +18,7 @@ export default async function ProductListPage({
       <h3 className="text-lg font-medium mb-4">All Products</h3>
       <ProductTable
         columns={columns}
-        data={data}
+        data={productData}
         currentPage={page}
         totalData={total}
       />

@@ -6,7 +6,7 @@ import React, { Suspense, useMemo, useState } from "react";
 import { ProductFilter } from "./ProductFilter";
 const ProductList = React.lazy(() => import('./ProductList'));
 
-export function ProductLayout({ data, total, page, limit }: ProductListProps) {
+export function ProductLayout({ data, page, limit }: ProductListProps) {
   const [search, setSearch] = useState<string>("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const debounceValue = useDebounce(search, 600);
