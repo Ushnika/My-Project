@@ -3,19 +3,18 @@ import * as React from "react";
 
 import logo from "@/assets/images/logo.png";
 import {
-    Sidebar,
-    SidebarContent,
-    SidebarGroup,
-    SidebarGroupContent,
-    SidebarGroupLabel,
-    SidebarHeader,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-    SidebarRail,
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarRail,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 
 type SubMenuItem = {
   title: string;
@@ -76,7 +75,6 @@ const data: MenuData = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-    const pathname = usePathname();
   return (
     <Sidebar {...props}>
       <SidebarHeader className="flex justify-center items-center">

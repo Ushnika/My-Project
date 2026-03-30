@@ -68,7 +68,7 @@ export const columns: ColumnDef<Product>[] = [
   {
     accessorKey: "action",
     header: "Action",
-    cell: ({ row }) => {
+    cell: () => {
       return (
         <div className="flex gap-2">
           <Edit className="size-4 text-green-500" />

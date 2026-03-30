@@ -99,11 +99,11 @@ export class ApiClient {
   }
 
   post<T>(url: string, body?: any, options?: RequestOptions) {
-    return this.request("POST", url, { ...options, body });
+    return this.request<T>("POST", url, { ...options, body });
   }
 
   put<T>(url: string, body?: any, options?: RequestOptions) {
-    return this.request("PUT", url, { ...options, body });
+    return this.request<T>("PUT", url, { ...options, body });
   }
 
   delete<T>(url: string, options?: RequestOptions) {

@@ -11,7 +11,7 @@ import React, { Suspense } from "react";
 const TopRatedProductList = React.lazy(() => import('../../components/modules/home/TopRatedProductList'));
 const HomeProductList = React.lazy(() => import('../../components/modules/home/HomeProductList'))
 
-
+export const dynamic = "force-dynamic";
 export default async function Home() {
   const { data } = await getProducts();
   return (
@@ -25,13 +25,13 @@ export default async function Home() {
         />
         <div className="absolute inset-0 bg-black/30 px-8 lg:px-32 py-16 text-white font-medium">
           <p className="font-semibold text-sm text-primary px-2 mb-4">
-            Men's Wear
+            Men&apos;s Wear
           </p>
           <h2 className="text-4xl w-full lg:text-7xl lg:w-1/2">
             Get start your favorite shopping
           </h2>
           <p className="text-xl lg:text-lg mt-4 mb-6">
-            Get upto 25% off on every purchase. Hurry up and don't miss a
+            Get upto 25% off on every purchase. Hurry up and don&apos;t miss a
             chance.
           </p>
           <div>
