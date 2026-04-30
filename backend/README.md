@@ -27,7 +27,6 @@ This is Rust API service built with Axum + PostgreSQL.
 1. Apply migrations
 
 Run SQL files in `migrations/` using your preferred tool (`psql`, DBeaver, pgAdmin, or migration runner).
-
 2. Start backend
 
 ```bash
